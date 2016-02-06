@@ -1,0 +1,34 @@
+<!--Post Template For Flapper News App-->
+
+<div class="page-header">
+	<h3>
+		<a ng-show="post.link" href="{{post.link}}">
+			{{post.title}} 
+		</a>
+		<span ng-hide="post.link">
+			{{post.title}}
+		</span>
+	</h3>
+</div>
+<div ng-repeat="comment in post.comments | orderBy: '-upvotes'">
+	{{comment.upvotes}} 
+	<span class="glyphicon glyphicon-thumbs-up" ng-click="incrementUpvotes(comment)"></span>
+	{{comment.downvotes}}
+	<span class="glyphicon glyphicon-thumbs-down" ng-click="decrementDownvotes(comment)"></span> 
+		- by {{comment.author}}
+	<span style="font-size:20px; margin-left:10px;">
+		{{comment.body}}		
+	</span>
+</div>
+
+<!--Add A Comment-->
+<form ng-submit="addComment()" ng-show="isLoggedIn()" style="margin-top:30px;">
+	<h3>Add A New Comment</h3>
+	<div class="form-group">
+		<input type="text" placeholder="Comment" class="form-control" ng-model="body"></input>
+	</div>
+	<button type="submit" class="btn btn-primary">Post</button>
+</form>
+<div ng-hide="isLoggedIn()">
+  		<h3>You need to <a href="/#/login">Log In</a> or <a href="/#/register">Register</a> before you can comment.</h3>
+</div>

@@ -1,0 +1,32 @@
+<html>
+	<head>
+		<title>Flapper News</title>
+		<!--<link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet">
+		<<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.5/angular.min.js"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-router/0.2.15/angular-ui-router.js"></script>-->
+		<link href="/stylesheets/bootstrap.min.css" rel="stylesheet">
+   		<style> .glyphicon-thumbs-up { cursor:pointer } </style>
+	</head>
+	<!--Main Body-->
+	<body class="container" ng-app="flapperNews">
+		<nav class="navbar navbar-default pull-right" ng-controller="NavCtrl">
+		    <ul class="nav navbar-nav">
+		    	<li><a href="#/home">Home</a></li>
+		    	<li ng-show="isLoggedIn()"><a>{{ currentUser() }}</a></li>
+		      	<li ng-show="isLoggedIn()"><a href="" ng-click="logOut()">Log Out</a></li>
+		      	<li ng-hide="isLoggedIn()"><a href="/#/login">Log In</a></li>
+		      	<li ng-hide="isLoggedIn()"><a href="/#/register">Register</a></li>
+		    </ul>
+  		</nav>
+		<ui-view></ui-view>
+		<script type="text/javascript" src="/javascripts/angular.min.js"></script>
+		<script type="text/javascript" src="/javascripts/angular-ui-router.min.js"></script>
+		<script type="text/javascript" src="/javascripts/controllers/mainCtrl.js"></script>
+		<script type="text/javascript" src="/javascripts/controllers/postsCtrl.js"></script>
+		<script type="text/javascript" src="/javascripts/controllers/authCtrl.js"></script>
+		<script type="text/javascript" src="/javascripts/controllers/navCtrl.js"></script>
+   		<script type="text/javascript" src="/javascripts/services/postsService.js"></script>
+   		<script type="text/javascript" src="/javascripts/services/authService.js"></script>
+   		<script src="/javascripts/angularApp.js"></script>
+	</body>
+</html>
